@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: "{{ .Values.shorthost }}-grav-config-claim"
+spec:
+  storageClassName: ""
+  accessModes:
+  - ReadWriteOnce
+  volumeName: "{{ .Values.shorthost }}-gravdata"
+  resources:
+    requests:
+      storage: "{{ .Values.configsize }}"

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ .Values.shorthost }}-grav"
+spec:
+  template:
+    metadata:
+      name: "{{ .Values.shorthost }}-grav-app"
+      labels: 
+        name: "{{ .Values.shorthost }}-grav-app"
+    spec:
+      volumes:
+        - name: configdata
+          persistentVolumeClaim:
+            claimName: "{{ .Values.shorthost }}-grav-config-claim"
+      containers:
+      - name: grav
+        image: linuxserver/grav:amd64-1.7.46
+        env:
+        volumeMounts:
+        - name: configdata
+          mountPath: "/config"
+        imagePullPolicy: IfNotPresent
+  replicas: 1 
+  selector:
+    matchLabels:
+      name: "{{ .Values.shorthost }}-grav-app"

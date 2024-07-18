@@ -1,0 +1,7 @@
+FQDN: "example.com"
+usessl: true
+
+shorthost: "example"
+configsize: "20Gi"
+hostconfigpath: "/opt/example.com/"
+
