@@ -1,10 +1,10 @@
-# Foundry VTT helm chart
+# Grav Chart
 
 Designed for a single node install with local storage.
 
 ## Quick install instructions
 
-Modify values for FQDN, username, password, adminpass, licensekey, and usessl.
+Modify values for FQDN, storage location, and shorthost if you want to host multiples.
 
 If desired you can modify the other values, but they should function just fine in most circumstances
 
